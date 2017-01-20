@@ -1,0 +1,24 @@
+li {
+	background-color: #d3d3d3;
+	
+	list-style: none;
+
+	width: 50%;
+}
+
+table{
+	border-radius: 5px;
+	border-color: black;
+	border: 3px solid black;
+}
+
+td {
+	background-color: powderblue;
+	font-size: 18px
+}
+
+tr {
+	border-color: black;
+	border: 3px solid black;
+
+}
