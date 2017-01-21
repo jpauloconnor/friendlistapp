@@ -6,49 +6,36 @@ $(document).ready(function(){
 	//alert("hello world");
 });
 */
-var $friends = $('#friends');
-var $name = $('#name');
-var $occupation = $('#occupation');
-var $age = $('#age');
+var $topics = $('#topics');
+var $concept = $('#concept');
+var $example = $('#example');
+var $challenge = $('#challenge');
 
 
-var friendTemplate = "" + 
+var topicTemplate = "" + 
 	"<tr>" +
 	"<td>" +
 	"{{concept}}" +
 	"</td>" +
 	"<td>" +
-	"<pre style='background-color: gray;'>{{occupation}}</pre>" +
+	"<pre style='background-color: gray;'>{{example}}</pre>" +
 	"</td>" +
 	"<td>" +
-	"{{age}}" +
-	"</td>" +
-	"<td>" +
-	"{{age}}" +
+	"{{challenge}}" +
 	"</td>" +
 	"<td>"	+
 	"<button id='{{id}}' class='remove btn btn-info'>X</button>" +
 	"</td>" +
 	 "</tr> <br>";
 
-var searchTemplate = "" +
-	"<div><a href='http://rest.learncode.academy/api/paul/code/'>" + 
-	"{{name}}" + 
-	"</a>" + 
-	"</div>";
-          
-
-function addFriend(friend){
-	$friends.append(Mustache.render(friendTemplate, friend));
-	$name.val('');
-	$occupation.val('');
-	$age.val('');
+function addTopic(topic){
+	$topics.append(Mustache.render(topicTemplate, topic));
+	$concept.val('');
+	$example.val('');
+	$challenge.val('');
 };
 
-function searchTerm(term){
-	$friends.append(Mustache.render(searchTemplate, term));
-	$name.val('');
-}
+
 $(document).ready(function(){
 
 	//AJAX GET Function - then loop through and create the DOM element to display it
@@ -57,10 +44,10 @@ $(document).ready(function(){
 	$.ajax({
 		type: 'GET',
 		url: 'http://rest.learncode.academy/api/paul/code',
-		success: function(friends) {
+		success: function(topics) {
 		// console.log("I have friends!", data); //returns all of johnbob's friends
-			$.each(friends, function(i, friend){
-				addFriend(friend);	
+			$.each(topics, function(i, topic){
+				addTopic(topic);	
 			});
 
 		},
@@ -91,20 +78,20 @@ $(document).ready(function(){
 	*/
 
 
-	$('#add-friend').on('click', function(){
+	$('#add-topic').on('click', function(){
 
-		var friend = {
-			name: $name.val(),
-			occupation: $occupation.val(),
-			age: $age.val()
+		var topic = {
+			concept: $concept.val(),
+			example: $example.val(),
+			challenge: $challenge.val()
 		};
 		//AJAX POST Function - click the button w/ id add-friend and then pass it to the API
 		$.ajax({
 			type: 'POST',
 			url: 'http://rest.learncode.academy/api/paul/code',
-			data: friend,
-			success: function(newFriend){
-				addFriend(newFriend);	
+			data: topic,
+			success: function(newTopic){
+				addTopic(newTopic);	
 			},
 
 			// error: function(){
@@ -114,7 +101,7 @@ $(document).ready(function(){
 
 	});
 
-	$friends.delegate('.remove', 'click', function(){
+	$topics.delegate('.remove', 'click', function(){
 
 		var $li = $(this).closest('tr');
 		//AJAX DELETE Function - click the .remove class button and the id identifies what to delete

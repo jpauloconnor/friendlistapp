@@ -25,7 +25,7 @@ tr {
 
 /*Table Columns*/
 #concept{
-	width: 10%;
+	width: 15%;
 }
 
 #example{
@@ -36,5 +36,5 @@ tr {
 	width: 40%;
 }
 #remove{
-	width: 10%;
+	width: 5%;
 }
