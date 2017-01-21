@@ -22,3 +22,19 @@ tr {
 	border: 3px solid black;
 
 }
+
+/*Table Columns*/
+#concept{
+	width: 10%;
+}
+
+#example{
+	width: 40%;
+}
+
+#challenge{
+	width: 40%;
+}
+#remove{
+	width: 10%;
+}
