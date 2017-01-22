@@ -10,7 +10,6 @@ app.use(cors());
 
 app.use(bodyParser.json({ type: '*/*'}));
 
-
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){

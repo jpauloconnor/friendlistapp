@@ -34,45 +34,40 @@
 	</nav>
 
 	<h1>JavaScript Track Study Guide</h1>
-		<div class="col-md-12">
-			<form class="form">
-				<h4 style="color: #31B0D5">Add a Concept</h4>
-					
-					<div class="formfield">
-						<label for="input">Concept:</label>
-						<input type="text" id="concept">
-					</div>
-					
-					<div class="formfield">
-						<label for="challenge">Challenge:</label>
-						<textarea id="challenge" placeholder="Add your challenge here"></textarea>
-					</div>
+		<form>
+			<div class="form-group">
+				<label for="input">Concept:</label>
+				<input class="form-control" id="concept" placeholder="Enter a concept">
+				 <small id="conceptNote" class="form-text text-muted">Just give us one word here.</small>
+			</div>
+			<div class="form-group">
+				<label for="challenge">Question:</label>
+				<textarea class="form-control" id="challenge" rows="2" placeholder="Add your question here"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="example">Example:</label>
+				<textarea class="form-control" id="example" rows="4" placeholder="Add your code here."></textarea>
+			</div>		
+			<button id="add-topic" class="btn btn-info">Add!</button>
+		</form>		
 
-					<div class="formfield">
-					  <label for="textarea">Example:</label>
-					  <textarea id="example" placeholder="Add your code here."></textarea>
-					</div>
-				<button id="add-topic" class="btn btn-info">Add!</button>
-			</form>		
-		</div>
 	
 	<br />
 	<hr>
-		<!--TODO: Bootstrap responsiveness-->
 		<div class="col-md-12" style="background-color: #eee">
 			<br>
 			<table class="table table-hover" id="topics">
 				<thead>
-					<th class="col-md-3" id="concept" style="background-color: red">Concept</th>
-					
-					<th class="col-md-3" id="challenge" style="background-color: green">Challenge</th>
-					<th class="col-md-3" id="example" style="background-color: blue">Example</th>
-					<th class="col-md-3" id="remove" style="background-color: yellow">Remove</th>
+					<th class="col-md-3" id="concept" style="background-color: ">Concept</th>	
+					<th class="col-md-3" id="challenge" style="background-color: ">Challenge</th>
+					<th class="col-md-3" id="example" style="background-color: ">Example</th>
+					<th class="col-md-3" id="remove" style="background-color: ">Remove</th>
 				</thead>
 				<tbody>
 					<tr>
 					</tr>
 				</tbody>
+				<button id="example-update" class="btn btn-info">Update!</button>
 			</table>
 			<br>	
 		</div>
@@ -80,12 +75,6 @@
 
 <!--js files-->
 
-
-
-
-
-		<input id="searchterm" type="text" /> <button id="search">search</button>
-		<div id="results"></div>
 
 	<script src="js/ajax.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
