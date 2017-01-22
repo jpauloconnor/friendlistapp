@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/JamesHandshoe/ajax-tutorial#readme",
   "dependencies": {
+    "body-parser": "^1.16.0",
+    "cors": "^2.8.1",
     "express": "^4.14.0"
   }
 }

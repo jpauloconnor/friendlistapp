@@ -1,24 +1,17 @@
-/*
-//alert('hello world');
-
-$(document).ready(function(){
-
-	//alert("hello world");
-});
-*/
 var $topics = $('#topics');
 var $concept = $('#concept');
 var $example = $('#example');
 var $challenge = $('#challenge');
-
 
 var topicTemplate = "" + 
 	"<tr>" +
 	"<td>" +
 	"{{concept}}" +
 	"</td>" +
-	"<td>" +
-	"<pre style='background-color: gray;'>{{example}}</pre>" +
+	"<td valign='top'>" +
+    '<textarea rows="4" style="width=200px">' +
+    '{{example}}' +
+    '</textarea>' +
 	"</td>" +
 	"<td>" +
 	"{{challenge}}" +
@@ -37,15 +30,10 @@ function addTopic(topic){
 
 
 $(document).ready(function(){
-
-	//AJAX GET Function - then loop through and create the DOM element to display it
-	//success and error are promises - when we get the information do this if not
-	//do this
 	$.ajax({
 		type: 'GET',
-		url: 'http://rest.learncode.academy/api/paul/code',
+		url: 'http://rest.learncode.academy/api/paul/javascriptcode',
 		success: function(topics) {
-		// console.log("I have friends!", data); //returns all of johnbob's friends
 			$.each(topics, function(i, topic){
 				addTopic(topic);	
 			});
@@ -57,27 +45,6 @@ $(document).ready(function(){
 		}	
 	});
 
-	//the above is an older way of using asynchronous calls and promises.  The succes and error still work but 
-	//the newer syntax would be written like this:
-	/*
-	
-	$.ajax({
-		type: 'GET',
-		url: 'http://rest.learncode.academy/api/learncode/code'
-	}).done(function(friends){
-		$.each(friends, function(i, friend){
-			addFriend(friend);
-		});
-	}).fail(function(){
-		alert('error loading friends');
-	});
-
-
-
-
-	*/
-
-
 	$('#add-topic').on('click', function(){
 
 		var topic = {
@@ -88,17 +55,16 @@ $(document).ready(function(){
 		//AJAX POST Function - click the button w/ id add-friend and then pass it to the API
 		$.ajax({
 			type: 'POST',
-			url: 'http://rest.learncode.academy/api/paul/code',
+			url: 'http://rest.learncode.academy/api/paul/javascriptcode',
 			data: topic,
 			success: function(newTopic){
 				addTopic(newTopic);	
 			},
 
-			// error: function(){
-			// 	alert('error saving order');
-			// }
+			error: function(){
+				console.log('error saving');
+			}
 		});
-
 	});
 
 	$topics.delegate('.remove', 'click', function(){
@@ -107,7 +73,7 @@ $(document).ready(function(){
 		//AJAX DELETE Function - click the .remove class button and the id identifies what to delete
 		$.ajax({
 			type: 'DELETE',
-			url: 'http://rest.learncode.academy/api/paul/code/' + $(this).attr('id'),
+			url: 'http://rest.learncode.academy/api/paul/javascriptcode/' + $(this).attr('id'),
 			success: function(){
 				$li.fadeOut(300, function(){
 					$(this).remove();
@@ -116,9 +82,28 @@ $(document).ready(function(){
 		});
 	});
 
+      // $("#searchterm").keyup(function(e){
+      //   var q = $("#searchterm").val();
+      //   $.getJSON("http://en.wikipedia.org/w/api.php?callback=?",
+      //   {
+      //     srsearch: q,
+      //     action: "query",
+      //     list: "search",
+      //     format: "json"
+      //   },
+      //   function(data) {
+      //     $("#results").empty();
+      //     $("#results").append("Results for <b>" + q + "</b>");
+      //     $.each(data.query.search, function(i,item){
+      //       $("#results").append("<div><a href='http://en.wikipedia.org/wiki/" + encodeURIComponent(item.title) + "'>" + item.title + "</a>" + item.snippet + "</div>");
+      //     });
+      //   });
+      // });
+
+
       $("#searchterm").keyup(function(e){
         var q = $("#searchterm").val();
-        $.getJSON("http://en.wikipedia.org/w/api.php?callback=?",
+        $.getJSON("https://developer.mozilla.org/en-US/search.json",
         {
           srsearch: q,
           action: "query",
@@ -129,48 +114,12 @@ $(document).ready(function(){
           $("#results").empty();
           $("#results").append("<b>" + q + "</b>");
           $.each(data.query.search, function(i,item){
-            $("#results").append("<div><a href='http://en.wikipedia.org/wiki/" + encodeURIComponent(item.title) + "'>" + item.title + "</a>" + item.snippet + "</div>");
+            $("#results").append("<div>" + encodeURIComponent(item.title) + item.title + item.snippet + "</div>");
+
+            // $("#results").append("<div><a href='http://en.wikipedia.org/wiki/" + encodeURIComponent(item.title) + "'>" + item.title + "</a>" + item.snippet + "</div>");
           });
         });
       });
-
-
-	 // $("#searchterm").keyup(function(e){
-  //       var q = $("#searchterm").val();
-  //       $.getJSON("http://rest.learncode.academy/api/learncode/friends/",
-  //       {
-  //         srsearch: q,
-  //         action: "query",
-  //         list: "search",
-  //         format: "json"
-  //       },
-  //       function(data) {
-  //         $("#results").empty();
-  //         $("#results").append("Results for <b>" + q + "</b");
-  //         $.each(data.query.search, function(i,item){
-  //           $("#results").append("<div><a href='http://rest.learncode.academy/api/learncode/friends/'>" + item.name + "</a>" + item.name + "</div>");
-  //         });
-  //       });
-  //     });
-
- //  	$('#searchterm').keyup(function(e){
-	// 	var q = $("#searchterm").val();
-	// $.ajax({
-	// 	type: 'GET',
-	// 	url: 'http://rest.learncode.academy/api/learncode/friends',
-	// 	},
-	// 	function(data){
-	// 		  $("#results").empty();
- //  	          $("#results").append("Results for <b>" + q + "</b");
- //  	          $.each(data.query.search, function(i,item){
- //            $("#results").append("<div><a href='http://rest.learncode.academy/api/learncode/friends/'" + encodeURIComponent(item.name) + ">" + item.name + "</a>" + item.name + "</div>");
- //          });
-	// 	});	
-	// });
-
-
-
-
 
 });
 

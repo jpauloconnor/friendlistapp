@@ -16,43 +16,48 @@
 	
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
 </head>
 <body>
 	
-	<div class="container">
+<div class="container">
 	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
+		<div class="container-fluid">
+	    	<div class="navbar-header">
+	      		<a class="navbar-brand" href="#">Study Guide</a>
+	    	</div>
+	    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      		<form class="navbar-form navbar-left">
+	       			<button type="submit" class="btn btn-default">Submit</button>
+	      		</form>
+	    	</div><!-- /.navbar-collapse -->
+	  	</div><!-- /.container-fluid -->
+	</nav>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" id="searchterm" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-	<h1>Friend List</h1>
+	<h1>JavaScript Track Study Guide</h1>
 		<div class="col-md-12">
 			<form class="form">
-				<h4 style="color: #31B0D5">Add a Friend</h4>
-					<p>Concept: <input type="text" id="concept"></p>
-					<p>Example: <input type="text" id="example"></p>
-					<p>Challenge: <input type="text" id="challenge"></p>
-					<button id="add-topic" class="btn btn-info">Add!</button>
-			</form>
+				<h4 style="color: #31B0D5">Add a Concept</h4>
+					
+					<div class="formfield">
+						<label for="input">Concept:</label>
+						<input type="text" id="concept">
+					</div>
+					
+					<div class="formfield">
+						<label for="challenge">Challenge:</label>
+						<textarea id="challenge" placeholder="Add your challenge here"></textarea>
+					</div>
+
+					<div class="formfield">
+					  <label for="textarea">Example:</label>
+					  <textarea id="example" placeholder="Add your code here."></textarea>
+					</div>
+				<button id="add-topic" class="btn btn-info">Add!</button>
+			</form>		
 		</div>
-
-		<br />
-
+	
+	<br />
+	<hr>
 		<!--TODO: Bootstrap responsiveness-->
 		<div class="col-md-12" style="background-color: #eee">
 			<br>
@@ -71,7 +76,16 @@
 			<br>	
 		</div>
 	</div>
+
 <!--js files-->
+
+
+
+
+
+		<input id="searchterm" type="text" /> <button id="search">search</button>
+		<div id="results"></div>
+
 	<script src="js/ajax.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
 </body>
