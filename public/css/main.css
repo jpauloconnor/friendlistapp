@@ -2,6 +2,11 @@ body {
 	font-family: belleza;
 }
 
+code{
+	padding: 85px 5px 2px 5px;
+	border: 2px solid black;
+
+}
 .navbar-default .navbar-nav > li.dropdown:hover > a, 
 .navbar-default .navbar-nav > li.dropdown:hover > a:hover,
 .navbar-default .navbar-nav > li.dropdown:hover > a:focus {
