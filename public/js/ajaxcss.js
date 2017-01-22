@@ -13,7 +13,7 @@ var topicTemplate = "" +
 	"{{challenge}}" +
 	"</td>" +
 	"<td valign='top'>" +
-    '<pre>' +
+    '<code>' +
     '<textarea id="update" rows="4" style="width:300px">' +
     '{{example}}' +
     '</textarea>' +
