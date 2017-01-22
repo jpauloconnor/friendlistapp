@@ -8,13 +8,15 @@ var topicTemplate = "" +
 	"<td>" +
 	"{{concept}}" +
 	"</td>" +
+	"<td>" +
+	"{{challenge}}" +
+	"</td>" +
 	"<td valign='top'>" +
+    '<pre>' +
     '<textarea rows="4" style="width=200px">' +
     '{{example}}' +
     '</textarea>' +
-	"</td>" +
-	"<td>" +
-	"{{challenge}}" +
+    '</code>' +
 	"</td>" +
 	"<td>"	+
 	"<button id='{{id}}' class='remove btn btn-info'>X</button>" +
