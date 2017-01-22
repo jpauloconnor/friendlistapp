@@ -72,24 +72,24 @@ $('#add-topic').on('click', function(){
 	});
 
 //PUT(UPDATE THE CODE IN THE TABLE)
-// $('#example-update').on('click', function(){
+$('#example-update').on('click', function(){
 
-// 		var update = {
-// 			update: $update.val()
-// 		};
-// 		$.ajax({
-// 			type: 'PUT',
-// 			url: 'http://rest.learncode.academy/api/paul/jquery',
-// 			data: update,
-// 			success: function(newTopic){
-// 				addTopic(newTopic);	
-// 			},
+		var update = {
+			update: $update.val()
+		};
+		$.ajax({
+			type: 'PUT',
+			url: 'http://rest.learncode.academy/api/paul/jquery',
+			data: update,
+			success: function(newTopic){
+				addTopic(newTopic);	
+			},
 
-// 			error: function(){
-// 				console.log('error saving');
-// 			}
-// 		});
-// 	});
+			error: function(){
+				console.log('error saving');
+			}
+		});
+	});
 
 //DELETE
 	$topics.delegate('.remove', 'click', function(){
