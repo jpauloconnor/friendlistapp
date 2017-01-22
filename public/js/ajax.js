@@ -2,7 +2,6 @@ var $topics = $('#topics');
 var $concept = $('#concept');
 var $example = $('#example');
 var $challenge = $('#challenge');
-var $update = $('#update');
 
 
 var topicTemplate = "" + 
@@ -73,24 +72,24 @@ $('#add-topic').on('click', function(){
 	});
 
 //PUT(UPDATE THE CODE IN THE TABLE)
-$('#example-update').on('click', function(){
+// $('#example-update').on('click', function(){
 
-		var update = {
-			update: $update.val()
-		};
-		$.ajax({
-			type: 'PUT',
-			url: 'http://rest.learncode.academy/api/paul/javascriptcode',
-			data: update,
-			success: function(newTopic){
-				addTopic(newTopic);	
-			},
+// 		var update = {
+// 			update: $update.val()
+// 		};
+// 		$.ajax({
+// 			type: 'PUT',
+// 			url: 'http://rest.learncode.academy/api/paul/javascriptcode',
+// 			data: update,
+// 			success: function(newTopic){
+// 				addTopic(newTopic);	
+// 			},
 
-			error: function(){
-				console.log('error saving');
-			}
-		});
-	});
+// 			error: function(){
+// 				console.log('error saving');
+// 			}
+// 		});
+// 	});
 
 //DELETE
 	$topics.delegate('.remove', 'click', function(){
