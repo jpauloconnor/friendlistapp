@@ -37,7 +37,7 @@ $(document).ready(function(){
 //GET
 	$.ajax({
 		type: 'GET',
-		url: 'http://rest.learncode.academy/api/paul/bootstrapcode',
+		url: 'http://rest.learncode.academy/api/paul/html',
 		success: function(topics) {
 			$.each(topics, function(i, topic){
 				addTopic(topic);	
@@ -59,7 +59,7 @@ $('#add-topic').on('click', function(){
 		};
 		$.ajax({
 			type: 'POST',
-			url: 'http://rest.learncode.academy/api/paul/bootstrapcode',
+			url: 'http://rest.learncode.academy/api/paul/html',
 			data: topic,
 			success: function(newTopic){
 				addTopic(newTopic);	
@@ -79,7 +79,7 @@ $('#add-topic').on('click', function(){
 // 		};
 // 		$.ajax({
 // 			type: 'PUT',
-// 			url: 'http://rest.learncode.academy/api/paul/bootstrapcode',
+// 			url: 'http://rest.learncode.academy/api/paul/html',
 // 			data: update,
 // 			success: function(newTopic){
 // 				addTopic(newTopic);	
@@ -98,30 +98,12 @@ $('#add-topic').on('click', function(){
 		//AJAX DELETE Function - click the .remove class button and the id identifies what to delete
 		$.ajax({
 			type: 'DELETE',
-			url: 'http://rest.learncode.academy/api/paul/bootstrapcode/' + $(this).attr('id'),
+			url: 'http://rest.learncode.academy/api/paul/html/' + $(this).attr('id'),
 			success: function(){
 				$li.fadeOut(300, function(){
 					$(this).remove();
 				});
 			}
-		});
-	});
-	
-	$("#searchterm").keyup(function(e){
-		var q = $("#searchterm").val();
-		$.getJSON("http://en.wikipedia.org/w/api.php?callback=?",
-		{
-			srsearch: q,
-			action: "query",
-			list: "search",
-			format: "json"
-		},
-		function(data) {
-			$("#results").empty();
-			$("#results").append("<b>" + q + "</b>");
-			$.each(data.query.search, function(i,item){
-				$("#results").append("<div><a href='http://en.wikipedia.org/wiki/" + encodeURIComponent(item.title) + "'>" + item.title + "</a>" + item.snippet + "</div>");
-			});
 		});
 	});
 });
