@@ -1,14 +1,16 @@
 body {
 	font-family: belleza;
 }
-li {
-	background-color: #d3d3d3;
-	
-	list-style: none;
 
-	width: 50%;
+.navbar-default .navbar-nav > li.dropdown:hover > a, 
+.navbar-default .navbar-nav > li.dropdown:hover > a:hover,
+.navbar-default .navbar-nav > li.dropdown:hover > a:focus {
+    background-color: rgb(231, 231, 231);
+    color: rgb(85, 85, 85);
 }
-
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
 table{
 	border-radius: 5px;
 	border-color: black;
@@ -31,21 +33,15 @@ tr {
 	width: 15%;
 }
 
-#example{
-	width: 40%;
-}
 
 #challenge{
 	width: 40%;
 }
+
+#example{
+	width: 40%;
+}
+
 #remove{
 	width: 5%;
-}
-
-#codetextarea{
-	width: 300px;
-}
-
-.formfield{
-	vertical-align: middle;
 }

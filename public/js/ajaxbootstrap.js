@@ -37,7 +37,7 @@ $(document).ready(function(){
 //GET
 	$.ajax({
 		type: 'GET',
-		url: 'http://rest.learncode.academy/api/paul/javascriptcode',
+		url: 'http://rest.learncode.academy/api/paul/bootstrapcode',
 		success: function(topics) {
 			$.each(topics, function(i, topic){
 				addTopic(topic);	
@@ -59,7 +59,7 @@ $('#add-topic').on('click', function(){
 		};
 		$.ajax({
 			type: 'POST',
-			url: 'http://rest.learncode.academy/api/paul/javascriptcode',
+			url: 'http://rest.learncode.academy/api/paul/bootstrapcode',
 			data: topic,
 			success: function(newTopic){
 				addTopic(newTopic);	
@@ -79,7 +79,7 @@ $('#add-topic').on('click', function(){
 // 		};
 // 		$.ajax({
 // 			type: 'PUT',
-// 			url: 'http://rest.learncode.academy/api/paul/javascriptcode',
+// 			url: 'http://rest.learncode.academy/api/paul/bootstrapcode',
 // 			data: update,
 // 			success: function(newTopic){
 // 				addTopic(newTopic);	
@@ -98,7 +98,7 @@ $('#add-topic').on('click', function(){
 		//AJAX DELETE Function - click the .remove class button and the id identifies what to delete
 		$.ajax({
 			type: 'DELETE',
-			url: 'http://rest.learncode.academy/api/paul/javascriptcode/' + $(this).attr('id'),
+			url: 'http://rest.learncode.academy/api/paul/bootstrapcode/' + $(this).attr('id'),
 			success: function(){
 				$li.fadeOut(300, function(){
 					$(this).remove();

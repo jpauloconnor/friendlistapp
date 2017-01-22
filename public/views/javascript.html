@@ -73,18 +73,50 @@
 	</nav>
 
 	<div class="jumbotron">
-		<h1 class="display-3">Hello, rockin JS Tracks students!</h1>
-		<p class="lead">This site is just a simple starter place for us to use to assemble a study guide. What a bad place for a study guide, right? The data will disappear tomorrow!</p>
-		<p>Just trying to inject Bootstrap items in here for fun and illustration. This sucker is a jumbotron.</p>
-		<p class="lead">
-			<a class="btn btn-primary btn-lg" href="views/javascript.html" role="button">Start Studying</a>
+		<h1 class="display-3">JavaScript Study Guide</h1>
+		<p class="lead">Let's add some JS code and concepts in here. Cool?</p>
 		</p>
 	</div>
-</div>
+		<form>
+			<div class="form-group">
+				<label for="input">Concept:</label>
+				<input class="form-control" id="concept" placeholder="Enter a concept">
+				 <small id="conceptNote" class="form-text text-muted">Just give us one word here.</small>
+			</div>
+			<div class="form-group">
+				<label for="challenge">Question:</label>
+				<textarea class="form-control" id="challenge" rows="2" placeholder="Add your question here"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="example">Example:</label>
+				<textarea class="form-control" id="example" rows="4" placeholder="Add your code here."></textarea>
+			</div>		
+			<button id="add-topic" class="btn btn-info">Add!</button>
+		</form>		
+
+	
+	<br />
+	<hr>
+		<div class="col-md-12" style="background-color: #eee">
+			<br>
+			<table class="table table-hover" id="topics">
+				<thead>
+					<th class="col-md-3" id="concept" style="background-color: ">Concept</th>	
+					<th class="col-md-3" id="challenge" style="background-color: ">Challenge</th>
+					<th class="col-md-3" id="example" style="background-color: ">Example</th>
+					<th class="col-md-3" id="remove" style="background-color: ">Remove</th>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+			<br>	
+		</div>
+	</div>
+
 <!--js files-->
 
-
-	<script src="js/ajax.js"></script>
+	<script src="../js/ajax.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
 </body>
 </html>
